@@ -1,0 +1,11 @@
+{
+  "name": "web-ui",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "git@github.com:NguyenVux/samp-web-ui-demo.git",
+  "author": "vu.nguyenhoang <rockmanx000@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
