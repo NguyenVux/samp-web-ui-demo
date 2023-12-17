@@ -1,25 +1,19 @@
 const express = require('express');
-const path = require('path')
+const root = require('./routes/root');
+const profile = require('./routes/profile');
+
 const app = express();
-const bodyParser = require('body-parser');
-const Multer = require('multer');
+const port = 8080;
 
-const router = express.Router();
-const getFields = Multer();
-router.get("/",(req,res,next)=>{
-    console.log(path.resolve(path.join(__dirname,"..",'public','index.html')));
-    res.sendFile('index.html',{root:path.resolve(path.join(__dirname,"..",'public',))});
+
+app.use(express.static('public'));
+app.use((res,req,next) => {
+    res.headers['cache-control'] = 'no-store';
+    next();
 });
+app.use(root);
+app.use(profile);
 
-router.post("/login",getFields.none(),(req,res)=>{
-    console.log(req.headers);
-    console.log(req.body);
-    res.status(200);
-    res.end();
-    
-});
-
-app.use("/",router);
-
-
-app.listen("8080",() => console.log("server started"));
+app.listen(port,()=>{
+    console.log(`Listing port ${port}`);
+})
