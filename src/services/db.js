@@ -1,11 +1,11 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const dbPool =  mysql.createPool({
-    host: 'HOSTNAME',
-    port:  'port',
-    user: 'username',
-    password: 'password',
-    database: 'db name' //database chua account vd: sago
+    host: 'localhost',
+    port:  '6789',
+    user: 'root',
+    password: 'admin',
+    database: 'SAMP' //database chua account vd: sago
 });
 
 module.exports = {
